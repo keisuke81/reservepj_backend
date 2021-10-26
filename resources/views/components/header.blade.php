@@ -10,7 +10,9 @@
 
   <style scoped>
     .header {
+      height: 50px;
       display: flex;
+      background-color: #fff;
     }
 
     button {
@@ -66,15 +68,16 @@
 
 <body>
   <div class="header">
-    <nav>
+    <div>
       <button class="menu-toggle">
         <div></div>
         <div></div>
         <div></div>
       </button>
-    </nav>
+  </div>
     <div class="rease">
       Rease
     </div>
     </header>
+  </div>  
 </body>

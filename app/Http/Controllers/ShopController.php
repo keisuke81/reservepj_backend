@@ -26,12 +26,13 @@ class ShopController extends Controller
     //店舗詳細ページの表示//
     public function getDetail(Shop $shop_id)
     {
-        $item = Shop::find($shop_id)->first();
-        $area = Area::where('id', $item->area_id)->first();
-        $item->area_name = $area->name;
+        $item = Shop::find($shop_id)->last();
+            $area = Area::where('id', $item->area_id)->first();
+            $item->area_name = $area->name;
 
-        $genre = Genre::where('id', $item->genre_id)->first();
-        $item->genre_name = $genre->name;
+            $genre = Genre::where('id', $item->genre_id)->first();
+            $item->genre_name = $genre->name;
+
         return view('/detail', ['item' => $item]);
     }
 }

@@ -12,9 +12,10 @@
   @component('components.header')
   @endcomponent
 
+
   <div class="detail_content">
     <div class='shop_name'>
-      <a href="#" class="back_btn"></a>
+      <a href="/" class="back_btn"></a>
       <h1>{{$item->name}}</h1>
     </div>
     <div class="content-img">

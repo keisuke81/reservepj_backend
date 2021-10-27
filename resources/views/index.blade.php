@@ -12,7 +12,6 @@
   @component('components.header')
   @endcomponent
 
-
   <div class="wrapper">
     @foreach($items as $item)
     <div class="card">
@@ -26,7 +25,7 @@
       </div>
       <div class="detail">
         <div class="detail_btn">
-          <a href="">詳しく見る</a>
+          <a href="/detail/:{{$item->id}}">詳しく見る</a>
         </div>
         <div class="like_btn">
 

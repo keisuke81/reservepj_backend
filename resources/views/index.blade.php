@@ -20,7 +20,7 @@
         <img src={{$item->img_url}} />
       </div>
       <div class="text-box">
-        <h2 class="shop_name">{{$item->name}}</h2>
+        <h1 class="shop_name">{{$item->name}}</h1>
         <span class="area_name">#{{$item->area_name}}</span>
         <sspan class="genre_name">#{{$item->genre_name}}</sspan>
       </div>
@@ -37,7 +37,7 @@
   </div>
 </body>
 
-<style>
+<style scoped>
   .wrapper {
     margin-top: 100px;
     display: flex;
@@ -63,7 +63,7 @@
     padding: 0 20px;
   }
 
-  h2 {
+  h1 {
     margin-top: 5px;
     margin-bottom: 10px;
   }

@@ -30,27 +30,30 @@
           <a href="/detail/:{{$item->id}}">詳しく見る</a>
         </div>
         <div class="likes">
-          <button class="heart" type="button"></button>
-          <script src="{{asset('/js/heart.js')}}"></script>
+          <div class="heart">
+          </div>
         </div>
       </div>
     </div>
-    @endforeach
+  @endforeach
   </div>
 </body>
 
 <style scoped>
-  h1{
+  h1 {
     font-size: 1.5em;
     font-weight: bold;
   }
-  .shop_name{
-    margin-top:10px;
+
+  .shop_name {
+    margin-top: 10px;
   }
+
   .area_name,
-  .genre_name{
+  .genre_name {
     font-size: 0.8em;
   }
+
   .wrapper {
     margin-top: 100px;
     display: flex;
@@ -84,12 +87,13 @@
   .detail {
     display: flex;
   }
-  .detail_btn{
-    margin-top:20px;
-    padding:5px 10px;
+
+  .detail_btn {
+    margin-top: 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     background-color: blue;
-    color:white;
+    color: white;
   }
 
   .likes {
@@ -129,5 +133,11 @@
   .heart::after {
     transform: rotate(45deg);
     right: 14%;
+  }
+  .heart_getFavorite{
+    background-color: pink;
+  }
+  .heart_noFavorite{
+    background-color: #eeeeee;
   }
 </style>

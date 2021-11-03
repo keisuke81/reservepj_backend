@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="path/to/reset.css">
+  <link rel="stylesheet" href="path/to/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,7 +16,7 @@
       background-color: #fff;
     }
 
-    button {
+    .menu-toggle {
       position: fixed;
       top: 10px;
       left: 10px;
@@ -29,7 +30,7 @@
       box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
     }
 
-    button div {
+    .menu-toggle div {
       position: absolute;
       left: 10px;
       height: 2px;
@@ -39,23 +40,23 @@
       box-sizing: border-box;
     }
 
-    button div:nth-of-type(1) {
+    .menu-toggle div:nth-of-type(1) {
       top: 6px;
       width: 8px;
     }
 
-    button div:nth-of-type(2) {
+    .menu-toggle div:nth-of-type(2) {
       top: 16px;
       width: 24px;
     }
 
-    button div:nth-of-type(3) {
+    .menu-toggle div:nth-of-type(3) {
       bottom: 6px;
       width: 8px;
     }
 
     .rease {
-      position:fixed;
+      position: fixed;
       left: 64px;
       top: 5px;
       height: 34px;
@@ -74,10 +75,10 @@
         <div></div>
         <div></div>
       </button>
-  </div>
+    </div>
     <div class="rease">
       Rease
     </div>
     </header>
-  </div>  
+  </div>
 </body>

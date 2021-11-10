@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [ShopController::class,'index']);
-Route::get('/detail/:{shop_id}',[ShopController::class,'getDetail']);
+Route::get('/', [ShopController::class, 'index']);
+Route::get('/detail/:{shop_id}', [ShopController::class, 'getDetail']);
 Route::get('/favorite/{id}', [FavoriteController::class, 'getFavorite'])->name('getFavorite');
 Route::get('/favorite/{id}', [FavoriteController::class, 'noFavorite'])->name('noFavorite');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

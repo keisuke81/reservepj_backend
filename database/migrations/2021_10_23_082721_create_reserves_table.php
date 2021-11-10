@@ -14,7 +14,7 @@ class CreateReservesTable extends Migration
     public function up()
     {
         Schema::create('reserves', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->unsignedBigInteger('id')->autoIncrement();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('shop_id');
             $table->dateTime('start_at');

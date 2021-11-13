@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/:{shop_id}', [ShopController::class, 'getDetail']);
 Route::get('/favorite/{id}', [FavoriteController::class, 'getFavorite'])->name('getFavorite');
 Route::get('/favorite/{id}', [FavoriteController::class, 'noFavorite'])->name('noFavorite');
+Route::get('menu1',[ShopController::class,'menu1','menu1']);
+Route::post('/done',[ReserveController::class, 'create']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

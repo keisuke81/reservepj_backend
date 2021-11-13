@@ -70,11 +70,11 @@
 <body>
   <div class="header">
     <div>
-      <button class="menu-toggle">
+      <a class="menu-toggle" href="./menu1">
         <div></div>
         <div></div>
         <div></div>
-      </button>
+      </a>
     </div>
     <div class="rease">
       Rease

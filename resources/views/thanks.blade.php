@@ -10,5 +10,5 @@
   <title>register</title>
 </head>
 <body>
-  
+  thanks
 </body>

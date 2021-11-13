@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
+
     //店舗一覧ページの表示//
     public function index()
     {
@@ -34,5 +36,11 @@ class ShopController extends Controller
             $item->genre_name = $genre->name;
 
         return view('/detail', ['item' => $item]);
+    }
+
+    //menu1の表示//
+    public function menu1()
+    {
+        return view('menu1');
     }
 }

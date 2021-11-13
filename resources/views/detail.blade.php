@@ -32,31 +32,33 @@
   </div>
 
   <div class="reserve_form">
-    <form action="/done" method="post">
+    <form action="/done" method="post" name="create">
+    @csrf
       <h2>予約</h2>
+      <input type="hidden" id="id" name="id" value={{$item->id}}>
       <div>
-        <input type="date" id="date" class="reserve_date" value="2021-04-01">
+        <input type="date" id="date" name="date" class="reserve_date" value="2021-04-01">
       </div>
       <div>
         <input type="time" id="time" class="reservee_time" value="17:00">
       </div>
       <div>
-        <select id="number">
-          <option value="1人">１人</option>
-          <option value="2人">２人</option>
-          <option value="3人">３人</option>
-          <option value="4人">４人</option>
-          <option value="5人">５人</option>
-          <option value="6人">６人</option>
-          <option value="7人">７人</option>
-          <option value="8人">８人</option>
-          <option value="9人">９人</option>
-          <option value="10人">１０人</option>
-          <option value="11人">１１人</option>
-          <option value="12人">１２人</option>
-          <option value="13人">１３人</option>
-          <option value="14人">１４人</option>
-          <option value="15人">１５人</option>
+        <select id="num_of_users" name="num_of_users">
+          <option value=1>１人</option>
+          <option value=2>２人</option>
+          <option value=3>３人</option>
+          <option value=4>４人</option>
+          <option value=5>５人</option>
+          <option value=6>６人</option>
+          <option value=7>７人</option>
+          <option value=8>８人</option>
+          <option value=9>９人</option>
+          <option value=10>１０人</option>
+          <option value=11>１１人</option>
+          <option value=12>１２人</option>
+          <option value=13>１３人</option>
+          <option value=14>１４人</option>
+          <option value=15>１５人</option>
         </select>
       </div>
       <div class="reserve_content">
@@ -80,7 +82,7 @@
           <tr>
             <th>Number</th>
             <td>
-              <p id="output_number"></p>
+              <p id="output_number">人</p>
             </td>
           </tr>
         </table>
@@ -224,7 +226,7 @@
   let output_date = document.getElementById('output_date');
   let time = document.getElementById('time');
   let output_time = document.getElementById('output_time');
-  let number = document.getElementById('number');
+  let number = document.getElementById('num_of_users');
   let output_number = document.getElementById('output_number');
 
   timestamp = 0;

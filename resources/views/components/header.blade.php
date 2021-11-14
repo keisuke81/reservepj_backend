@@ -70,7 +70,7 @@
 <body>
   <div class="header">
     <div>
-      <a class="menu-toggle" href="./menu1">
+      <a class="menu-toggle" href="/menu1">
         <div></div>
         <div></div>
         <div></div>

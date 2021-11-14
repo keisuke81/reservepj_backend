@@ -87,7 +87,12 @@
           </tr>
         </table>
       </div>
-      <button class="reserve_btn">予約する</button>
+      @auth
+      <button class="reserve_login_btn">予約する</button>
+      @endauth
+      @guest
+      <a href="/dashboard"　class="reserve_login_btn">ログインする</a>
+      @endguest
     </form>
   </div>
 </body>
@@ -210,7 +215,7 @@
     padding-left: 30px;
   }
 
-  .reserve_btn {
+  .reserve_login_btn {
     width: 100%;
     background-color: blue;
     text-align: center;

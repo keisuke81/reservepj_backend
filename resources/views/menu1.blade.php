@@ -12,7 +12,7 @@
 
 <body>
   <a href="/" class="batsu"></a>
-
+  　@auth
   <div class="menu1_content">
     <div class="content">
       <a href="/">Home</a>
@@ -24,6 +24,21 @@
       <a href="/mypage">Mypage</a>
     </div>
   </div>
+  @endauth
+
+  @guest
+  <div class="menu1_content">
+    <div class="content">
+      <a href="/">Home</a>
+    </div>
+    <div class="content">
+      <a href="/register">Registration</a>
+    </div>
+    <div class="content">
+      <a href="/login">Login</a>
+    </div>
+  </div>
+  @endguest
 </body>
 
 <style scoped>
@@ -36,7 +51,7 @@
     background: blue;
     position: relative;
     margin-top: 5%;
-    left:5%;
+    left: 5%;
   }
 
   .batsu::before,

@@ -5,27 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class FavoriteController extends Controller
 {
-    public function getFavorite($id)
+    public function getFavorite(Request $request)
     {
-      $favorite = new Favorite;
-      $favorite->user_id=User::id();
-      $favorite->shop_id=$id;
-      $favorite->save();
+    $user_id = Auth::id();
 
-      return redirect('/');
-    }
+    $param = [
+      'user_id' => $user_id,
+      'shop_id' => $request->id,
+    ];
 
-    public function noFavorite($id)
-    {
-        $user_id=User::id();
-        $favorite=Favorite::where('user_id',$user_id)->where('shop_id',$id)->first();
-        $favorite->delate();
+    Favorite::create($param);
 
-        return redirect('/');
+    return redirect('/');
     }
 
 }

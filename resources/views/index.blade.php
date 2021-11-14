@@ -29,13 +29,17 @@
         <div class="detail_btn">
           <a href="/detail/:{{$item->id}}">詳しく見る</a>
         </div>
-        <div class="likes">
-          <div class="heart">
+        <form action="/" method="post">
+          @csrf
+          <div class="likes">
+            <button class="heart">
+            </button>
           </div>
-        </div>
+          <input type="hidden" name="id" value="{{$item->id}}">
+        </form>
       </div>
     </div>
-  @endforeach
+    @endforeach
   </div>
 </body>
 
@@ -134,10 +138,12 @@
     transform: rotate(45deg);
     right: 14%;
   }
-  .heart_getFavorite{
+
+  .heart_getFavorite {
     background-color: pink;
   }
-  .heart_noFavorite{
+
+  .heart_noFavorite {
     background-color: #eeeeee;
   }
 </style>

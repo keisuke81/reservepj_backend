@@ -21,6 +21,10 @@ Route::get('/favorite/{id}', [FavoriteController::class, 'getFavorite'])->name('
 Route::get('/favorite/{id}', [FavoriteController::class, 'noFavorite'])->name('noFavorite');
 Route::get('menu1',[ShopController::class,'menu1','menu1']);
 Route::post('/done',[ReserveController::class, 'create']);
+Route::get('register',function(){
+    return view('register');
+});
+Route::post('/',[FavoriteController::class,'getFavorite']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

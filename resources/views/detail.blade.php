@@ -40,7 +40,7 @@
         <input type="date" id="date" name="date" class="reserve_date" value="2021-04-01">
       </div>
       <div>
-        <input type="time" id="time" class="reservee_time" value="17:00">
+        <input type="time" id="time" name="time"  class="reserve_time" value="17:00">
       </div>
       <div>
         <select id="num_of_users" name="num_of_users">

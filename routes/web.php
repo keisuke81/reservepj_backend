@@ -25,6 +25,7 @@ Route::get('register',function(){
     return view('register');
 });
 Route::post('/',[FavoriteController::class,'getFavorite']);
+Route::get('/mypage',[ReserveController::class,'getMypage']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

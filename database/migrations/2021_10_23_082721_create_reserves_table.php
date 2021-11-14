@@ -17,7 +17,8 @@ class CreateReservesTable extends Migration
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('shop_id');
-            $table->dateTime('start_at');
+            $table->date('date');
+            $table->time('time');
             $table->integer('num_of_users');
             $table->timestamps();
 

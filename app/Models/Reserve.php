@@ -12,7 +12,8 @@ class Reserve extends Model
     protected $fillable =[
         'user_id',
         'shop_id',
-        'start_at',
+        'date',
+        'time',
         'num_of_users',
     ];
 }

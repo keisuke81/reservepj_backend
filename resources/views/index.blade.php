@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <title>shop_all</title>
 </head>
 
@@ -23,25 +24,38 @@
       <div class="text-box">
         <h1 class="shop_name">{{$item->name}}</h1>
         <span class="area_name">#{{$item->area_name}}</span>
-        <sspan class="genre_name">#{{$item->genre_name}}</sspan>
+        <span class="genre_name">#{{$item->genre_name}}</span>
       </div>
       <div class="detail">
         <div class="detail_btn">
           <a href="/detail/:{{$item->id}}">詳しく見る</a>
         </div>
-        <form action="/" method="post">
-          @csrf
-          <div class="likes">
-            <button class="heart">
-            </button>
-          </div>
-          <input type="hidden" name="id" value="{{$item->id}}">
-        </form>
+        <div>
+          @if($item->is_liked_by_auth_user())
+          <a href="{{ route('noFavorite', ['id' => $item->id]) }}" class="btn btn-success btn-sm">いいね</a>
+          @else
+          <a href="{{ route('getFavorite', ['id' => $item->id]) }}" class="btn btn-secondary btn-sm">いいね</a>
+          @endif
+        </div>
       </div>
     </div>
     @endforeach
   </div>
 </body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      buttonState: false
+    },
+    methods: {
+      changeState: function() {
+        this.buttonState = !this.buttonState
+      }
+    }
+  })
+</script>
 
 <style scoped>
   h1 {
@@ -145,5 +159,9 @@
 
   .heart_noFavorite {
     background-color: #eeeeee;
+  }
+
+  .buttoncolor {
+    background: pink;
   }
 </style>

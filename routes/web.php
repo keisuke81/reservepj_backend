@@ -17,14 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/:{shop_id}', [ShopController::class, 'getDetail']);
-Route::get('/favorite/{id}', [FavoriteController::class, 'getFavorite'])->name('getFavorite');
-Route::get('/favorite/{id}', [FavoriteController::class, 'noFavorite'])->name('noFavorite');
 Route::get('menu1',[ShopController::class,'menu1','menu1']);
 Route::post('/done',[ReserveController::class, 'create']);
 Route::get('register',function(){
     return view('register');
 });
-Route::post('/',[FavoriteController::class,'getFavorite']);
+Route::get('/favorite/{id}',[ShopController::class,'getFavorite'])->name('getFavorite');
+Route::get('/nofavorite/{id}',[ShopController::class, 'noFavorite'])->name('noFavorite');
 Route::get('/mypage',[ReserveController::class,'getMypage']);
 
 Route::get('/dashboard', function () {

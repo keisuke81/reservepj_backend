@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -42,5 +43,29 @@ class ShopController extends Controller
     public function menu1()
     {
         return view('menu1');
+    }
+    //お気に入り登録//
+    public function getFavorite($id)
+    {
+
+
+        Favorite::create([
+            'user_id' => Auth::id(),
+            'shop_id' => $id,
+        ]);
+        session()->flash('success', 'お気に入りに追加しました');
+
+        return redirect('/');
+    }
+
+    //お気に入り解除//
+    public function noFavorite($id)
+    {
+        $favorite = Favorite::where('shop_id', $id)->where('user_id', Auth::id())->first();
+        $favorite->delete();
+
+        session()->flash('success', 'お気に入り解除しました');
+
+        return redirect('/');
     }
 }

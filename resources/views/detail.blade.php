@@ -9,6 +9,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>shop_detail</title>
   <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script>
+    function alertReserve() {
+      alert('予約しますか？');
+    }
+  </script>
 </head>
 
 <body>
@@ -33,14 +38,14 @@
 
   <div class="reserve_form">
     <form action="/done" method="post" name="create">
-    @csrf
+      @csrf
       <h2>予約</h2>
       <input type="hidden" id="id" name="id" value={{$item->id}}>
       <div>
         <input type="date" id="date" name="date" class="reserve_date" value="2021-04-01">
       </div>
       <div>
-        <input type="time" id="time" name="time"  class="reserve_time" value="17:00">
+        <input type="time" id="time" name="time" class="reserve_time" value="17:00">
       </div>
       <div>
         <select id="num_of_users" name="num_of_users">
@@ -87,7 +92,7 @@
           </tr>
         </table>
       </div>
-      <button class="reserve_login_btn">予約する</button>
+      <button class="reserve_login_btn" onclick="alertReserve()">予約する</button>
     </form>
   </div>
 </body>

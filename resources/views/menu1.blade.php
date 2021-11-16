@@ -7,6 +7,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>
+    function alertLogout(){
+      alert('ログアウトしますか？');
+    }
+  </script>
   <title>register</title>
 </head>
 
@@ -18,7 +23,7 @@
       <a href="/">Home</a>
     </div>
     <div class="content">
-      <a href="/dashboard">Logout</a>
+      <a href="/logout" onclick="alertLogout()">Logout</a>
     </div>
     <div class="content">
       <a href="/mypage">Mypage</a>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('register',function(){
 Route::get('/favorite/{id}',[ShopController::class,'getFavorite'])->name('getFavorite');
 Route::get('/nofavorite/{id}',[ShopController::class, 'noFavorite'])->name('noFavorite');
 Route::get('/mypage',[ReserveController::class,'getMypage']);
+Route::get('/logout',[UserController::class, 'getLogout']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

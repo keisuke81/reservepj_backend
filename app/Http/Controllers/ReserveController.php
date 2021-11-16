@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ReserveController extends Controller
 {
+    //ログイン時のみ動作有効//
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['create']);
+    }
+    //店予約//
     public function create(Request $request)
     {
         $user = Auth::user();

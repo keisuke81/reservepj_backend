@@ -44,6 +44,13 @@ class ShopController extends Controller
     {
         return view('menu1');
     }
+
+    //ログイン時のみ動作有効//
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['getFavorite', 'noFavorite']);
+    }
+
     //お気に入り登録//
     public function getFavorite($id)
     {

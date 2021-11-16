@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/:{shop_id}', [ShopController::class, 'getDetail']);
 Route::get('menu1',[ShopController::class,'menu1','menu1']);
-Route::post('/done',[ReserveController::class, 'create']);
+Route::post('/done',[ReserveController::class, 'create'])->name('getReserve');
 Route::get('register',function(){
     return view('register');
 });

@@ -87,12 +87,7 @@
           </tr>
         </table>
       </div>
-      @auth
       <button class="reserve_login_btn">予約する</button>
-      @endauth
-      @guest
-      <a href="/dashboard"　class="reserve_login_btn">ログインする</a>
-      @endguest
     </form>
   </div>
 </body>

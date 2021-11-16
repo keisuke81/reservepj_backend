@@ -30,11 +30,11 @@
         <div class="detail_btn">
           <a href="/detail/:{{$item->id}}">詳しく見る</a>
         </div>
-        <div>
+        <div class="likes">
           @if($item->is_liked_by_auth_user())
-          <a href="{{ route('noFavorite', ['id' => $item->id]) }}" class="btn btn-success btn-sm">いいね</a>
+          <a href="{{ route('noFavorite', ['id' => $item->id]) }}" class="btn btn-success btn-sm heart pink"></a>
           @else
-          <a href="{{ route('getFavorite', ['id' => $item->id]) }}" class="btn btn-secondary btn-sm">いいね</a>
+          <a href="{{ route('getFavorite', ['id' => $item->id]) }}" class="btn btn-secondary btn-sm heart gray"></a>
           @endif
         </div>
       </div>
@@ -137,10 +137,10 @@
     content: "";
     width: 50%;
     height: 80%;
-    background: #eeeeee;
     border-radius: 25px 25px 0 0;
     display: block;
     position: absolute;
+    background: #bbbbbb;
   }
 
   .heart::before {
@@ -153,15 +153,8 @@
     right: 14%;
   }
 
-  .heart_getFavorite {
-    background-color: pink;
-  }
-
-  .heart_noFavorite {
-    background-color: #eeeeee;
-  }
-
-  .buttoncolor {
-    background: pink;
+  .pink::after,
+  .pink::before {
+    background: #ff367f;
   }
 </style>

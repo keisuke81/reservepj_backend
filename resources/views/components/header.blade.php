@@ -13,6 +13,7 @@
     .header {
       height: 50px;
       display: flex;
+      background-color: #fff;
     }
 
     .menu-toggle {

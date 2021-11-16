@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -40,7 +40,7 @@
                 </div>
 
                 <form method="POST" action="http://127.0.0.1:8000/register">
-                    <input type="hidden" name="_token" value="wO1mPRYhAVrttL8HuBWT3v9PLycEeilNH9cBTyrD">
+                    @csrf
                     <!-- Name -->
                     <div class="mt-4">
                         <label class="block font-medium text-sm text-gray-700" for="name">

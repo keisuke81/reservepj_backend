@@ -7,7 +7,7 @@
 
     <title>Laravel</title>
 
- 
+
 
     <!-- Styles -->
     <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
@@ -41,7 +41,7 @@
                 <!-- Validation Errors -->
 
                 <form method="POST" action="http://127.0.0.1:8000/login">
-                    <input type="hidden" name="_token" value="wO1mPRYhAVrttL8HuBWT3v9PLycEeilNH9cBTyrD">
+                    @csrf
                     <!-- Email Address -->
                     <div class="mt-4">
                         <label class="block font-medium text-sm text-gray-700" for="email">

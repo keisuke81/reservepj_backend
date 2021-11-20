@@ -27,6 +27,8 @@ Route::get('/favorite/{id}',[ShopController::class,'getFavorite'])->name('getFav
 Route::get('/nofavorite/{id}',[ShopController::class, 'noFavorite'])->name('noFavorite');
 Route::get('/mypage/nofavorite/{id}',[FavoriteController::class, 'mypagenoFavorite'])->name('mypagenoFavorite');
 Route::get('/mypage',[ReserveController::class,'getMypage']);
+Route::get('mypage/delete_reserve/{id}',[ReserveController::class,'delete_reserve'])->name('delete_reserve');
+
 Route::get('/logout',[UserController::class, 'getLogout']);
 
 Route::get('/dashboard', function () {

@@ -15,7 +15,7 @@
   @endcomponent
   <div class="done_card">
     <p>ご予約ありがとうございます。</p>
-    <a href="/">戻る</a>
+    <a href="/mypage">戻る</a>
   </div>
 
 </body>
@@ -29,20 +29,22 @@
     background-color: #E6E9E9;
     text-align: center;
   }
-  p{
-    position:relative;
-    top:30%;
+
+  p {
+    position: relative;
+    top: 30%;
     font-size: 20px;
     align-items: center;
-    margin-top:50px;
-    margin-bottom:40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
   }
-  a{
-    position:relative;
-    top:50%;
-    padding:20px 30px;
+
+  a {
+    position: relative;
+    top: 50%;
+    padding: 20px 30px;
     border-radius: 3px;
     background-color: blue;
-    color:white;
+    color: white;
   }
 </style>

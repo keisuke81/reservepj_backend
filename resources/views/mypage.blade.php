@@ -41,6 +41,9 @@
             <td>{{$reserve->num_of_users}}</td>
           </tr>
         </table>
+        <div class="delete_reserve">
+          <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}">予約取り消し</a>
+        </div>
       </div>
       @endforeach
     </div>
@@ -59,7 +62,7 @@
         </div>
         <div class="detail">
           <div class="detail_btn">
-            <a href="/detail/:{{$favorite->id}}">詳しく見る</a>
+            <a href="/detail/:{{$favorite->shop_id}}">詳しく見る</a>
           </div>
           <div class="likes">
             <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>

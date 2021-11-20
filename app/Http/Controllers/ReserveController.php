@@ -77,4 +77,13 @@ class ReserveController extends Controller
             ]);
     }
 
+    //予約取り消し//
+    public function delete_reserve($id){
+
+        $delete_data = new Reserve;
+        $delete_data->where('id', $id)->delete();
+
+        return redirect('/mypage'); 
+    }
+
 }

@@ -110,7 +110,7 @@
     margin-top: 20px;
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: blue;
+    background-color: rgb(59 91 244);
     color: white;
   }
 

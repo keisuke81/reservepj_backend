@@ -38,7 +38,7 @@
           </tr>
           <tr>
             <th>Number</th>
-            <td>{{$reserve->num_of_users}}</td>
+            <td>{{$reserve->num_of_users}}名</td>
           </tr>
         </table>
         <div class="delete_reserve">
@@ -56,7 +56,7 @@
           <img src={{$favorite->shop_img}} />
         </div>
         <div class="text-box">
-          <h2 class="shop_name">{{$favorite->shop_name}}</h2>
+          <h3 class="shop_name">{{$favorite->shop_name}}</h3>
           <span class="area_name">#{{$favorite->area_name}}</span>
           <sspan class="genre_name">#{{$favorite->genre_name}}</sspan>
         </div>
@@ -82,8 +82,27 @@
   }
 
   h2 {
+    display: block;
+    width: 100%;
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  h3 {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 0.8em;
+  }
+
+  .delete_reserve {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 0;
   }
 
   .shop_name {
@@ -100,6 +119,7 @@
     margin-top: 100px;
   }
 
+
   .reserve_contents {
     position: absolute;
     left: 0%;
@@ -109,10 +129,19 @@
   .reserve_card {
     width: 60%;
     display: flexbox;
-    background-color: blue;
+    background-color: rgb(59, 91, 244);
     color: white;
     margin: 0% 10% 10% 10%;
-    padding: 10% 10%;
+    padding: 2% 5% 2% 5%;
+  }
+
+  table {
+    width: 100%;
+    border-spacing: 15px;
+  }
+
+  td {
+    padding-left: 10%;
   }
 
   .favorite_shops {
@@ -127,7 +156,7 @@
 
   .favorite_card {
     border: solid 1px black;
-    margin: 10px 10px;
+    margin: 0 10px 10px 10px;
     height: 300px;
     width: 250px;
 
@@ -155,7 +184,7 @@
     margin-top: 20px;
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: blue;
+    background-color: rgb(59 91 244);
     color: white;
   }
 

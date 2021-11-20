@@ -176,8 +176,8 @@
     position: absolute;
     left: 50%;
     top: 0%;
-    margin-top: 30px;
-    background-color: #2C7CFF;
+    margin-top: 100px;
+    background-color: rgb(59 91 244);
     height: 60%;
     width: 40%;
     color: white;
@@ -200,7 +200,7 @@
   }
 
   .reserve_content {
-    background-color: #8EB8FF;
+    background-color: rgb(89 125 247);
     width: 80%;
     border-radius: 5px;
     margin: 5px 0 0 20px;
@@ -217,7 +217,7 @@
 
   .reserve_login_btn {
     width: 100%;
-    background-color: blue;
+    background-color: rgb(22, 55, 245);
     text-align: center;
     position: absolute;
     bottom: 0%;

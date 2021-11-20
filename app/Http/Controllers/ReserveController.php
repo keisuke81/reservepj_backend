@@ -76,4 +76,5 @@ class ReserveController extends Controller
              'favorites'=>$favorites,
             ]);
     }
+
 }

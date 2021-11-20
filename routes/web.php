@@ -25,6 +25,7 @@ Route::get('register',function(){
 });
 Route::get('/favorite/{id}',[ShopController::class,'getFavorite'])->name('getFavorite');
 Route::get('/nofavorite/{id}',[ShopController::class, 'noFavorite'])->name('noFavorite');
+Route::get('/mypage/nofavorite/{id}',[FavoriteController::class, 'mypagenoFavorite'])->name('mypagenoFavorite');
 Route::get('/mypage',[ReserveController::class,'getMypage']);
 Route::get('/logout',[UserController::class, 'getLogout']);
 

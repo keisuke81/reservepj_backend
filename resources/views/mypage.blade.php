@@ -61,14 +61,9 @@
           <div class="detail_btn">
             <a href="/detail/:{{$favorite->id}}">詳しく見る</a>
           </div>
-          <form action="/" method="post">
-            @csrf
-            <div class="likes">
-              <button class="heart">
-              </button>
-            </div>
-            <input type="hidden" name="id" value="{{$favorite->id}}">
-          </form>
+          <div class="likes">
+            <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>
+          </div>
         </div>
       </div>
       @endforeach
@@ -105,7 +100,7 @@
   .reserve_contents {
     position: absolute;
     left: 0%;
-    width:50%;
+    width: 50%;
   }
 
   .reserve_card {
@@ -113,8 +108,8 @@
     display: flexbox;
     background-color: blue;
     color: white;
-    margin:0% 10% 10% 10%;
-    padding:10% 10%;
+    margin: 0% 10% 10% 10%;
+    padding: 10% 10%;
   }
 
   .favorite_shops {
@@ -206,5 +201,10 @@
 
   .heart_noFavorite {
     background-color: #eeeeee;
+  }
+
+  .pink::after,
+  .pink::before {
+    background: #ff367f;
   }
 </style>

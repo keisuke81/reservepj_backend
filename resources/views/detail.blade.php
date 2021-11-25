@@ -42,7 +42,7 @@
       <h2>予約</h2>
       <input type="hidden" id="id" name="id" value={{$item->id}}>
       <div>
-        <input type="date" id="date" name="date" class="reserve_date" value="2021-04-01">
+        <input type="date" id="today" name="date" class="reserve_date" value="2021-04-01">
       </div>
       <div>
         <input type="time" id="time" name="time" class="reserve_time" value="17:00">
@@ -227,7 +227,7 @@
 </style>
 
 <script>
-  let date = document.getElementById('date');
+  let date = document.getElementById('today');
   let output_date = document.getElementById('output_date');
   let time = document.getElementById('time');
   let output_time = document.getElementById('output_time');
@@ -250,4 +250,27 @@
   }
 
   update();
+
+  window.onload = function() {
+    //今日の日時を表示
+    var date = new Date()
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    var toTwoDigits = function(num, digit) {
+      num += ''
+      if (num.length < digit) {
+        num = '0' + num
+      }
+      return num
+    }
+
+    var yyyy = toTwoDigits(year, 4)
+    var mm = toTwoDigits(month, 2)
+    var dd = toTwoDigits(day, 2)
+    var ymd = yyyy + "-" + mm + "-" + dd;
+
+    document.getElementById("today").value = ymd;
+  }
 </script>

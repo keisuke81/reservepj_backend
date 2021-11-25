@@ -20,6 +20,11 @@
   <div class="wrapper">
     <div class="reserve_contents">
       <h2>予約状況</h2>
+      @if(!isset($reserves[0]))
+      <div class="no_contents_card">
+        現在予約はありません。
+      </div>
+      @else
       @foreach($reserves as $reserve)
       <div class="reserve_card">
         <h3>予約{{$loop->iteration}}</h3>
@@ -46,30 +51,37 @@
         </div>
       </div>
       @endforeach
+      @endif
     </div>
 
     <div class="favorite_shops">
       <h2>お気に入り店舗</h2>
-      @foreach($favorites as $favorite)
-      <div class="favorite_card">
-        <div class="content-img">
-          <img src={{$favorite->shop_img}} />
-        </div>
-        <div class="text-box">
-          <h3 class="shop_name">{{$favorite->shop_name}}</h3>
-          <span class="area_name">#{{$favorite->area_name}}</span>
-          <sspan class="genre_name">#{{$favorite->genre_name}}</sspan>
-        </div>
-        <div class="detail">
-          <div class="detail_btn">
-            <a href="/detail/:{{$favorite->shop_id}}">詳しく見る</a>
-          </div>
-          <div class="likes">
-            <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>
-          </div>
-        </div>
+      @if(!isset($favorites[0]))
+      <div class="no_contents_card">
+        お気に入り登録されている店舗はありません。
       </div>
-      @endforeach
+      @else
+        @foreach($favorites as $favorite)
+        <div class="favorite_card">
+          <div class="content-img">
+            <img src={{$favorite->shop_img}} />
+          </div>
+          <div class="text-box">
+            <h4 class="shop_name">{{$favorite->shop_name}}</h4>
+            <span class="area_name">#{{$favorite->area_name}}</span>
+            <sspan class="genre_name">#{{$favorite->genre_name}}</sspan>
+          </div>
+          <div class="detail">
+            <div class="detail_btn">
+              <a href="/detail/:{{$favorite->shop_id}}">詳しく見る</a>
+            </div>
+            <div class="likes">
+              <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      @endif  
     </div>
   </div>
   @endauth
@@ -98,6 +110,11 @@
     font-size: 0.8em;
   }
 
+  h4 {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
   .delete_reserve {
     margin-top: 5%;
     text-align: center;
@@ -124,6 +141,14 @@
     position: absolute;
     left: 0%;
     width: 50%;
+  }
+
+  .no_contents_card {
+    width: 60%;
+    background-color: rgb(59, 91, 244);
+    color: white;
+    margin: 0% 10% 10% 10%;
+    padding: 10% 5% 10% 5%;
   }
 
   .reserve_card {

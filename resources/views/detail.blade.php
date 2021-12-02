@@ -20,84 +20,93 @@
   @component('components.header')
   @endcomponent
 
+  <div class="wrapper">
+    <div class="detail_content">
+      <div class='shop_name'>
+        <a href=" javascript:history.back()" class="back_btn"></a>
+        <h1>{{$item->name}}</h1>
+      </div>
+      <div class="content-img">
+        <img src={{$item->img_url}} />
+      </div>
+      <div class="text-box">
+        <span class="area_name">#{{$item->area_name}}</span>
+        <sspan class="genre_name">#{{$item->genre_name}}</sspan>
+        <p class="description">{{$item->description}}</p>
+      </div>
+    </div>
 
-  <div class="detail_content">
-    <div class='shop_name'>
-      <a href=" javascript:history.back()" class="back_btn"></a>
-      <h1>{{$item->name}}</h1>
+    <div class="reserve_form">
+      <form action="/done" method="post" name="create">
+        @csrf
+        <h2>予約</h2>
+        <input type="hidden" id="id" name="id" value={{$item->id}}>
+        <div>
+          <input type="date" id="today" name="date" class="reserve_date" value="2021-04-01">
+        </div>
+        <div>
+          <input type="time" id="time" name="time" class="reserve_time" value="17:00">
+        </div>
+        <div>
+          <select id="num_of_users" name="num_of_users">
+            <option value=1>１人</option>
+            <option value=2>２人</option>
+            <option value=3>３人</option>
+            <option value=4>４人</option>
+            <option value=5>５人</option>
+            <option value=6>６人</option>
+            <option value=7>７人</option>
+            <option value=8>８人</option>
+            <option value=9>９人</option>
+            <option value=10>１０人</option>
+            <option value=11>１１人</option>
+            <option value=12>１２人</option>
+            <option value=13>１３人</option>
+            <option value=14>１４人</option>
+            <option value=15>１５人</option>
+          </select>
+        </div>
+        <div class="reserve_content">
+          <table>
+            <tr>
+              <th>Shop</th>
+              <td>{{$item->name}}</td>
+            </tr>
+            <tr>
+              <th>Date</th>
+              <td>
+                <p id="output_date"></p>
+              </td>
+            </tr>
+            <tr>
+              <th>Time</th>
+              <td>
+                <p id="output_time"></p>
+              </td>
+            </tr>
+            <tr>
+              <th>Number</th>
+              <td>
+                <p id="output_number">人</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <button class="reserve_login_btn" onclick="alertReserve()">予約する</button>
+      </form>
     </div>
-    <div class="content-img">
-      <img src={{$item->img_url}} />
-    </div>
-    <div class="text-box">
-      <span class="area_name">#{{$item->area_name}}</span>
-      <sspan class="genre_name">#{{$item->genre_name}}</sspan>
-      <p class="description">{{$item->description}}</p>
-    </div>
-  </div>
-
-  <div class="reserve_form">
-    <form action="/done" method="post" name="create">
-      @csrf
-      <h2>予約</h2>
-      <input type="hidden" id="id" name="id" value={{$item->id}}>
-      <div>
-        <input type="date" id="today" name="date" class="reserve_date" value="2021-04-01">
-      </div>
-      <div>
-        <input type="time" id="time" name="time" class="reserve_time" value="17:00">
-      </div>
-      <div>
-        <select id="num_of_users" name="num_of_users">
-          <option value=1>１人</option>
-          <option value=2>２人</option>
-          <option value=3>３人</option>
-          <option value=4>４人</option>
-          <option value=5>５人</option>
-          <option value=6>６人</option>
-          <option value=7>７人</option>
-          <option value=8>８人</option>
-          <option value=9>９人</option>
-          <option value=10>１０人</option>
-          <option value=11>１１人</option>
-          <option value=12>１２人</option>
-          <option value=13>１３人</option>
-          <option value=14>１４人</option>
-          <option value=15>１５人</option>
-        </select>
-      </div>
-      <div class="reserve_content">
-        <table>
-          <tr>
-            <th>Shop</th>
-            <td>{{$item->name}}</td>
-          </tr>
-          <tr>
-            <th>Date</th>
-            <td>
-              <p id="output_date"></p>
-            </td>
-          </tr>
-          <tr>
-            <th>Time</th>
-            <td>
-              <p id="output_time"></p>
-            </td>
-          </tr>
-          <tr>
-            <th>Number</th>
-            <td>
-              <p id="output_number">人</p>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <button class="reserve_login_btn" onclick="alertReserve()">予約する</button>
-    </form>
   </div>
 </body>
 
 <style scoped>
+  body {
+    margin: 0 3%;
+  }
+
+  .wrapper {
+    display: flex;
+  }
+
   .back_btn {
     margin-top: 0px;
     position: relative;
@@ -140,9 +149,9 @@
   }
 
   .detail_content {
-    margin-left: 16px;
     width: 40%;
-    height: 60%;
+    height: auto;
+    margin-right: 5%;
   }
 
   img {
@@ -173,13 +182,11 @@
   }
 
   .reserve_form {
-    position: absolute;
-    left: 50%;
-    top: 0%;
-    margin-top: 100px;
+    position: relative;
+    margin: 5% 0 0 5%;
     background-color: rgb(59 91 244);
-    height: 60%;
     width: 40%;
+    height: auto;
     color: white;
   }
 
@@ -216,13 +223,31 @@
   }
 
   .reserve_login_btn {
+
     width: 100%;
-    background-color: rgb(22, 55, 245);
+    margin-top: 3%;
     text-align: center;
     position: absolute;
     bottom: 0%;
+    background-color: rgb(22, 55, 245);
+    text-align: center;
     height: 40px;
     font-size: 0.8em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapper{
+      display: block;
+    }
+    .detail_content{
+      margin:2% 2%;
+      width:100%;
+    }
+    .reserve_form{
+      margin:2% 2%;
+      width:80%;
+      height:100%;
+    }
   }
 </style>
 

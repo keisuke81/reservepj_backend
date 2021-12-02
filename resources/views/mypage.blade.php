@@ -17,6 +17,10 @@
   @auth
   <h1>{{$user_name}}さん</h1>
 
+  <div class="shop">
+    <a href="/" class="home"><< 店舗一覧へ</a>
+  </div>
+
   <div class="wrapper">
     <div class="reserve_contents">
       <h2>予約状況</h2>
@@ -47,7 +51,12 @@
           </tr>
         </table>
         <div class="delete_reserve">
-          <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}">予約取り消し</a>
+          <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}" onclick="alertcancel()">予約取り消し</a>
+          <script>
+            function alertcancel() {
+              alert('予約取り消ししますか？');
+            }
+          </script>
         </div>
       </div>
       @endforeach
@@ -61,33 +70,36 @@
         お気に入り登録されている店舗はありません。
       </div>
       @else
-        @foreach($favorites as $favorite)
-        <div class="favorite_card">
-          <div class="content-img">
-            <img src={{$favorite->shop_img}} />
+      @foreach($favorites as $favorite)
+      <div class="favorite_card">
+        <div class="content-img">
+          <img src={{$favorite->shop_img}} />
+        </div>
+        <div class="text-box">
+          <h4 class="shop_name">{{$favorite->shop_name}}</h4>
+          <span class="area_name">#{{$favorite->area_name}}</span>
+          <sspan class="genre_name">#{{$favorite->genre_name}}</sspan>
+        </div>
+        <div class="detail">
+          <div class="detail_btn">
+            <a href="/detail/:{{$favorite->shop_id}}">詳しく見る</a>
           </div>
-          <div class="text-box">
-            <h4 class="shop_name">{{$favorite->shop_name}}</h4>
-            <span class="area_name">#{{$favorite->area_name}}</span>
-            <sspan class="genre_name">#{{$favorite->genre_name}}</sspan>
-          </div>
-          <div class="detail">
-            <div class="detail_btn">
-              <a href="/detail/:{{$favorite->shop_id}}">詳しく見る</a>
-            </div>
-            <div class="likes">
-              <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>
-            </div>
+          <div class="likes">
+            <a href="{{ route('mypagenoFavorite', ['id' => $favorite->id]) }}" class="btn btn-success btn-sm heart pink"></a>
           </div>
         </div>
-        @endforeach
-      @endif  
+      </div>
+      @endforeach
+      @endif
     </div>
   </div>
   @endauth
 </body>
 
 <style scoped>
+  body{
+    padding:0 3%;
+  }
   h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -133,13 +145,13 @@
 
   .wrapper {
     position: relative;
-    margin-top: 100px;
+    margin-top: 5%;
   }
 
 
   .reserve_contents {
     position: absolute;
-    left: 0%;
+    margin-left: 3%;
     width: 50%;
   }
 
@@ -147,7 +159,7 @@
     width: 60%;
     background-color: rgb(59, 91, 244);
     color: white;
-    margin: 0% 10% 10% 10%;
+    margin: 0% 10% 10% 0%;
     padding: 10% 5% 10% 5%;
   }
 
@@ -156,13 +168,13 @@
     display: flexbox;
     background-color: rgb(59, 91, 244);
     color: white;
-    margin: 0% 10% 10% 10%;
+    margin: 0% 10% 10% 0%;
     padding: 2% 5% 2% 5%;
   }
 
   table {
     width: 100%;
-    border-spacing: 15px;
+    border-spacing: 1.5em;
   }
 
   td {
@@ -263,5 +275,16 @@
   .pink::after,
   .pink::before {
     background: #ff367f;
+  }
+
+  .home {
+    margin: 10% 0 0 3%;
+    background-color: rgb(59 91 244);
+    padding:1% 3%;
+    color:white;
+    font-weight: bold;
+  }
+  .shop{
+    margin-top:5%;
   }
 </style>

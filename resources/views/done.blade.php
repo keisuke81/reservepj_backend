@@ -20,23 +20,24 @@
 
 </body>
 <style scoped>
+  body{
+    padding:2% 5%;
+    height:700px;
+  }
   .done_card {
-    position: relative;
     margin-top: 10%;
-    left: 30%;
-    height: 300px;
-    width: 500px;
+    height: 40%;
+    width: 70%;
+    padding:10% 10%;
     background-color: #E6E9E9;
     text-align: center;
   }
 
   p {
-    position: relative;
-    top: 30%;
     font-size: 20px;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 40px;
+    margin-top: 0%;
+    margin-bottom: 5%;
   }
 
   a {
@@ -46,5 +47,17 @@
     border-radius: 3px;
     background-color: blue;
     color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    body{
+      padding:3% 2%;
+      height:700px;
+    }
+    .done_card{
+      width:80%;
+      height: 40%;
+      margin: 5% auto;
+    }
   }
 </style>

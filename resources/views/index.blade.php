@@ -15,6 +15,18 @@
   @component('components.header')
   @endcomponent
 
+  <div class="hello">
+    こんにちは、
+    @auth
+    <span>{{$user_name}}</span>
+    @endauth
+
+    @guest
+    <span>ゲスト</span>
+    @endguest
+    さん
+  </div>
+
   <div class="wrapper">
     @foreach($items as $item)
     <div class="card">
@@ -73,7 +85,7 @@
   }
 
   .wrapper {
-    margin-top: 100px;
+    margin-top: 5%;
     display: flex;
     align-items: flex-start;
     justify-content: left;
@@ -156,5 +168,24 @@
   .pink::after,
   .pink::before {
     background: #ff367f;
+  }
+
+  @media screen and (max-width: 768px){
+    .wrapper{
+      display:block;
+    }
+
+    .card{
+      width:80%;
+      height:100%;
+      padding:5% 0 5% 0;
+    }
+    .likes{
+      text-align: right;
+    }
+  }
+  
+  .hello{
+    margin-top:3%;
   }
 </style>

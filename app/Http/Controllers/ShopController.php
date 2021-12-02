@@ -23,7 +23,12 @@ class ShopController extends Controller
             $genre = Genre::where('id', $item->genre_id)->first();
             $item->genre_name = $genre->name;
         }
-        return view('index',['items'=>$items]);
+
+        $user = Auth::user();
+        $user_name = optional($user)->name ?? 'ゲスト';
+        
+
+        return view('index')->with(['items'=>$items, 'user_name'=>$user_name]);
     }
 
     //店舗詳細ページの表示//

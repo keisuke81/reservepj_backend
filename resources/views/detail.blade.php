@@ -101,10 +101,13 @@
 <style scoped>
   body {
     margin: 0 3%;
+    margin-top: 55px;
   }
 
   .wrapper {
     display: flex;
+    position: relative;
+    z-index: 0;
   }
 
   .back_btn {

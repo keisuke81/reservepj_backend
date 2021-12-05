@@ -7,7 +7,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/jquery.qrcode.min.js"></script>
+  <script type="text/JavaScript">
+    $(function(){
+      var qrtext = "あいうえお";
+      var utf8qrtext = unescape(encodeURIComponent(qrtext));
+      $("#img-qr").html("");
+      $("#img-qr").qrcode({text:utf8qrtext}); 
+    });
+    </script>
   <title>shop_all</title>
 </head>
 
@@ -16,7 +25,7 @@
   @endcomponent
 
   @auth
-  <h1>{{$user_name}}さん</h1>
+  <h1>{{$user_name}}さん  Mypage</h1>
 
   <div class="shop">
     <a href="/" class="home">
@@ -60,6 +69,9 @@
             }
           </script>
         </div>
+        <div class="qrcode">
+          <a href="{{ route('show_qrcode', ['id' => $reserve->id]) }}" class="qrcode_btn">QRコードを表示する</a>
+        </div>
       </div>
       @endforeach
       @endif
@@ -100,10 +112,13 @@
 
 <style scoped>
   body {
+    margin-top: 55px;
     padding: 0 3%;
   }
 
   h1 {
+    margin-top: 5%;
+    margin-left: 3%;
     font-size: 1.5em;
     font-weight: bold;
   }
@@ -135,10 +150,11 @@
     text-align: center;
     font-size: 0.8em;
   }
-  .delete_btn{
+
+  .delete_btn {
     background-color: white;
-    color:rgb(59, 91, 244);
-    padding:3% 2%;
+    color: rgb(59, 91, 244);
+    padding: 3% 2%;
     border-radius: 5%;
     font-weight: bold;
   }
@@ -180,6 +196,15 @@
     margin: 0% 10% 10% 0%;
     padding: 2% 5% 2% 5%;
   }
+  .qrcode{
+    text-align: center;
+    margin-top:10%;
+    
+  }
+
+  .qrcode_btn{
+    border-bottom: solid 1px white;
+  }
 
   table {
     width: 100%;
@@ -215,11 +240,6 @@
   .text-box,
   .detail {
     padding: 0 20px;
-  }
-
-  h1 {
-    margin-top: 5px;
-    margin-bottom: 10px;
   }
 
   .detail {
@@ -298,6 +318,12 @@
     margin-top: 5%;
   }
 
+  #qrcode {
+    width: 5%;
+    height: 5%;
+    color: white;
+  }
+
   @media screen and (max-width: 768px) {
     body {
       padding: 2% 3%;
@@ -320,7 +346,7 @@
     .favorite_shops {
       width: 100%;
       left: 0%;
-      padding-left:5%;
+      padding-left: 5%;
       align-items: flex-start;
       justify-content: left;
       flex-wrap: wrap;

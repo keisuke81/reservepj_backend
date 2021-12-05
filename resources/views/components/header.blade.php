@@ -11,13 +11,19 @@
 
   <style scoped>
     .header {
+      position: fixed;
+      top:0;
+      left: 0;
       height: 50px;
+      width: 100%;
       display: flex;
-      background-color: #fff;
+      z-index: 1000;
+      background-color: white;
+
     }
 
     .menu-toggle {
-      position: fixed;
+      position: relative;
       top: 10px;
       left: 10px;
       height: 34px;
@@ -31,6 +37,7 @@
     }
 
     .menu-toggle div {
+      z-index: 999;
       position: absolute;
       left: 10px;
       height: 2px;
@@ -56,7 +63,8 @@
     }
 
     .rease {
-      position: fixed;
+      z-index: 999;
+      position: relative;
       left: 64px;
       top: 5px;
       height: 34px;
@@ -67,7 +75,7 @@
   </style>
 </head>
 
-<body>
+<header>
   <div class="header">
     <div>
       <a class="menu-toggle" href="/menu1">
@@ -79,6 +87,5 @@
     <div class="rease">
       Rease
     </div>
-    </header>
   </div>
-</body>
+</header>

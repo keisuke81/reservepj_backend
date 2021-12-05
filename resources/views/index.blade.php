@@ -12,8 +12,10 @@
 </head>
 
 <body>
-  @component('components.header')
-  @endcomponent
+  <div class="header">
+    @component('components.header')
+    @endcomponent
+  </div>
 
   <div class="hello">
     こんにちは、
@@ -27,6 +29,7 @@
     さん
   </div>
 
+  <div class="title">店舗一覧</div>
   <div class="wrapper">
     @foreach($items as $item)
     <div class="card">
@@ -70,6 +73,9 @@
 </script>
 
 <style scoped>
+  body{
+    margin-top: 50px;
+  }
   h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -85,11 +91,17 @@
   }
 
   .wrapper {
-    margin-top: 5%;
+    margin-top: 2%;
     display: flex;
     align-items: flex-start;
     justify-content: left;
     flex-wrap: wrap;
+  }
+
+  .title {
+    margin: 2% 3%;
+    font-size: 2em;
+    font-weight: bold;
   }
 
   .card {
@@ -171,7 +183,7 @@
   }
 
   .hello {
-    margin-top: 3%;
+    margin: 2% 3%;
   }
 
   @media screen and (max-width: 768px) {
@@ -208,12 +220,13 @@
       margin: auto 0 auto 5%;
     }
 
-    .detail_btn{
+    .detail_btn {
       font-size: 1.5em;
     }
-    .heart{
-      position:absolute;
-      margin-top:20px;
+
+    .heart {
+      position: absolute;
+      margin-top: 20px;
     }
   }
 </style>

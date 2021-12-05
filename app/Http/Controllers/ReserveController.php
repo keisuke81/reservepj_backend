@@ -86,4 +86,24 @@ class ReserveController extends Controller
         return redirect('/mypage'); 
     }
 
+    public function show_qrcode($id){
+
+        $qrcode_data = Reserve::where('id',$id)->first();
+
+        $shop = Shop::where('id', $qrcode_data->shop_id)->first();
+        $qrcode_data->shop_name = $shop->name;
+
+        $user = User::where('id', $qrcode_data->user_id)->first();
+        $qrcode_data->user_name = $user->name;
+
+        $param=[
+            $qrcode_data->shop_name,
+            $qrcode_data->user_name,
+            $qrcode_data->date,
+            $qrcode_data->time
+        ];
+
+        return view('/qrcode', ['param'=>$param
+        ]);
+    }
 }

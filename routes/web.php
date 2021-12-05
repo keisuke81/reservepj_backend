@@ -29,6 +29,8 @@ Route::get('/mypage/nofavorite/{id}',[FavoriteController::class, 'mypagenoFavori
 Route::get('/mypage',[ReserveController::class,'getMypage']);
 Route::get('mypage/delete_reserve/{id}',[ReserveController::class,'delete_reserve'])->name('delete_reserve');
 
+Route::get('/qrcode/{id}', [ReserveController::class, 'show_qrcode'])->name('show_qrcode');
+
 Route::get('/logout',[UserController::class, 'getLogout']);
 
 Route::get('/dashboard', function () {

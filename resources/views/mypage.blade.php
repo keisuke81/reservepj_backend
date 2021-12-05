@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
   <title>shop_all</title>
 </head>
 
@@ -18,7 +19,8 @@
   <h1>{{$user_name}}さん</h1>
 
   <div class="shop">
-    <a href="/" class="home"><< 店舗一覧へ</a>
+    <a href="/" class="home">
+      << 店舗一覧へ</a>
   </div>
 
   <div class="wrapper">
@@ -51,7 +53,7 @@
           </tr>
         </table>
         <div class="delete_reserve">
-          <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}" onclick="alertcancel()">予約取り消し</a>
+          <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}" onclick="alertcancel()" class="delete_btn">予約取り消し</a>
           <script>
             function alertcancel() {
               alert('予約取り消ししますか？');
@@ -97,9 +99,10 @@
 </body>
 
 <style scoped>
-  body{
-    padding:0 3%;
+  body {
+    padding: 0 3%;
   }
+
   h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -128,10 +131,16 @@
   }
 
   .delete_reserve {
-    margin-top: 5%;
+    margin: 3% 0;
     text-align: center;
     font-size: 0.8em;
-    margin-bottom: 0;
+  }
+  .delete_btn{
+    background-color: white;
+    color:rgb(59, 91, 244);
+    padding:3% 2%;
+    border-radius: 5%;
+    font-weight: bold;
   }
 
   .shop_name {
@@ -144,7 +153,7 @@
   }
 
   .wrapper {
-    position: relative;
+    display: flex;
     margin-top: 5%;
   }
 
@@ -157,7 +166,7 @@
 
   .no_contents_card {
     width: 60%;
-    background-color: rgb(59, 91, 244);
+    background-color: #888888;
     color: white;
     margin: 0% 10% 10% 0%;
     padding: 10% 5% 10% 5%;
@@ -280,11 +289,65 @@
   .home {
     margin: 10% 0 0 3%;
     background-color: rgb(59 91 244);
-    padding:1% 3%;
-    color:white;
+    padding: 1% 3%;
+    color: white;
     font-weight: bold;
   }
-  .shop{
-    margin-top:5%;
+
+  .shop {
+    margin-top: 5%;
+  }
+
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 2% 3%;
+    }
+
+    .wrapper {
+      display: block;
+    }
+
+    .reserve_contents {
+      display: block;
+      width: 80%;
+      position: relative;
+    }
+
+    .reserve_card {
+      width: 100%;
+    }
+
+    .favorite_shops {
+      width: 100%;
+      left: 0%;
+      padding-left:5%;
+      align-items: flex-start;
+      justify-content: left;
+      flex-wrap: wrap;
+    }
+
+    .favorite_card {
+      width: 40%;
+      height: 30%;
+
+    }
+
+    h4 {
+      font-size: 1em;
+    }
+
+    .text-box,
+    .detail {
+      padding-left: 4%;
+    }
+
+    .detail_btn {
+      margin-bottom: 2%;
+      margin-top: 2%;
+    }
+
+    .heart {
+      margin-left: 35px;
+    }
   }
 </style>

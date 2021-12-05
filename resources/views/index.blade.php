@@ -170,22 +170,50 @@
     background: #ff367f;
   }
 
-  @media screen and (max-width: 768px){
-    .wrapper{
-      display:block;
+  .hello {
+    margin-top: 3%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      display: block;
     }
 
-    .card{
-      width:80%;
-      height:100%;
-      padding:5% 0 5% 0;
+    .card {
+      width: 80%;
+      height: 100%;
+      padding: 0% 0 2% 0;
     }
-    .likes{
+
+    .likes {
       text-align: right;
     }
-  }
-  
-  .hello{
-    margin-top:3%;
+
+    .text-box {
+      display: flex;
+    }
+
+    .shop_name {
+      font-size: 2em;
+      margin: 2% 0;
+    }
+
+    .area_name {
+      font-size: 1.5em;
+      margin: auto 0 auto 20%;
+    }
+
+    .genre_name {
+      font-size: 1.5em;
+      margin: auto 0 auto 5%;
+    }
+
+    .detail_btn{
+      font-size: 1.5em;
+    }
+    .heart{
+      position:absolute;
+      margin-top:20px;
+    }
   }
 </style>

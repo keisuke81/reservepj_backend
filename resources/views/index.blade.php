@@ -12,10 +12,8 @@
 </head>
 
 <body>
-  <div class="header">
     @component('components.header')
     @endcomponent
-  </div>
 
   <div class="hello">
     こんにちは、

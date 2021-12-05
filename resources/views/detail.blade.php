@@ -48,23 +48,7 @@
           <input type="time" id="time" name="time" class="reserve_time" value="17:00">
         </div>
         <div>
-          <select id="num_of_users" name="num_of_users">
-            <option value=1>１人</option>
-            <option value=2>２人</option>
-            <option value=3>３人</option>
-            <option value=4>４人</option>
-            <option value=5>５人</option>
-            <option value=6>６人</option>
-            <option value=7>７人</option>
-            <option value=8>８人</option>
-            <option value=9>９人</option>
-            <option value=10>１０人</option>
-            <option value=11>１１人</option>
-            <option value=12>１２人</option>
-            <option value=13>１３人</option>
-            <option value=14>１４人</option>
-            <option value=15>１５人</option>
-          </select>
+          <input type="number" id="num_of_users" name="num_of_users" value="2">名
         </div>
         <div class="reserve_content">
           <table>
@@ -236,6 +220,9 @@
     text-align: center;
     height: 40px;
     font-size: 0.8em;
+  }
+  #num_of_users{
+    width:50%;
   }
 
   @media screen and (max-width: 768px) {

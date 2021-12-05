@@ -37,4 +37,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/update_reserve/{id}',[ReserveController::class,'getUpdate'])->name('getUpdate');
+
+Route::post('/update', [ReserveController::class, 'update'])->name('updateReserve');
+
 require __DIR__.'/auth.php';

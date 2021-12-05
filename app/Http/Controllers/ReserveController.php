@@ -37,6 +37,7 @@ class ReserveController extends Controller
         return view('done');
     }
 
+    //マイページの遷移//
     public function getMypage(Reserve $user_id)
     {
         $user_id = Auth::id();
@@ -105,5 +106,44 @@ class ReserveController extends Controller
 
         return view('/qrcode', ['param'=>$param
         ]);
+    }
+
+    //予約変更ページへの繊維//
+    public function getUpdate($id){
+        $update_data = Reserve::where('id', $id)->first();
+
+        $shop = Shop::where('id', $update_data->shop_id)->first();
+        $update_data->shop_name = $shop->name;
+
+        $user = User::where('id', $update_data->user_id)->first();
+        $update_data->user_name = $user->name;
+
+        $param = [
+            $update_data->shop_name,
+            $update_data->user_name,
+            $update_data->date,
+            $update_data->time,
+            $update_data->num_of_users,
+            $update_data->id
+        ];
+
+        return view('update', [
+            'param' => $param
+        ]);
+    }
+
+    //予約の変更//
+    public function update(Request $request){
+
+        $update_data = [
+            'date'=>$request->update_date,
+            'time'=>$request->update_time,
+            'num_of_users'=>$request->update_num_of_users
+        ];
+
+        Reserve::where('id', $request->id)->update($update_data);
+
+        return view('done');
+
     }
 }

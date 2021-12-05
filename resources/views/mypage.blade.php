@@ -25,7 +25,7 @@
   @endcomponent
 
   @auth
-  <h1>{{$user_name}}さん  Mypage</h1>
+  <h1>{{$user_name}}さん Mypage</h1>
 
   <div class="shop">
     <a href="/" class="home">
@@ -50,17 +50,23 @@
           </tr>
           <tr>
             <th>Date</th>
-            <td>{{$reserve->date}}</td>
+            <td>{{$reserve->date}}
+            </td>
           </tr>
           <tr>
             <th>Time</th>
-            <td>{{$reserve->time}}</td>
+            <td>{{$reserve->time}}
+            </td>
           </tr>
           <tr>
             <th>Number</th>
-            <td>{{$reserve->num_of_users}}名</td>
+            <td>
+              {{$reserve->num_of_users}}名
           </tr>
         </table>
+        <div class="update_reserve">
+          <a href="{{route('getUpdate',['id' => $reserve->id]) }}" class="update_reserve_btn">予約内容の変更</a>
+        </div>
         <div class="delete_reserve">
           <a href=" {{ route('delete_reserve', ['id' => $reserve->id]) }}" onclick="alertcancel()" class="delete_btn">予約取り消し</a>
           <script>
@@ -145,18 +151,23 @@
     font-size: 1.2em;
   }
 
-  .delete_reserve {
-    margin: 3% 0;
+  .delete_reserve,
+  .update_reserve {
+    margin: 10% 0;
     text-align: center;
     font-size: 0.8em;
   }
 
-  .delete_btn {
+  .delete_btn,
+  .update_reserve_btn {
     background-color: white;
     color: rgb(59, 91, 244);
     padding: 3% 2%;
     border-radius: 5%;
     font-weight: bold;
+  }
+  .delete_btn{
+    background-color: #888888;
   }
 
   .shop_name {
@@ -196,13 +207,14 @@
     margin: 0% 10% 10% 0%;
     padding: 2% 5% 2% 5%;
   }
-  .qrcode{
+
+  .qrcode {
     text-align: center;
-    margin-top:10%;
-    
+    margin-top: 10%;
+
   }
 
-  .qrcode_btn{
+  .qrcode_btn {
     border-bottom: solid 1px white;
   }
 
@@ -212,7 +224,7 @@
   }
 
   td {
-    padding-left: 10%;
+    padding-left: 5%;
   }
 
   .favorite_shops {
@@ -322,6 +334,15 @@
     width: 5%;
     height: 5%;
     color: white;
+  }
+
+  input {
+    width: 100%;
+    background-color: white;
+    color: rgb(59 91 244);
+    font-weight: bold;
+    padding: 1% 2%;
+    border-radius: 5px;
   }
 
   @media screen and (max-width: 768px) {

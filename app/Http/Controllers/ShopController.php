@@ -31,6 +31,54 @@ class ShopController extends Controller
         return view('index')->with(['items'=>$items, 'user_name'=>$user_name]);
     }
 
+    //店舗名での検索//
+    public function find_shop(Request $request){
+        $search_shop_name = $request->search_shop_name;
+
+        $items = Shop::where('name', 'like','%'. $search_shop_name. '%')->get();
+        foreach ($items as $item) {
+            $area = Area::where('id', $item->area_id)->first();
+            $item->area_name = $area->name;
+
+            $genre = Genre::where('id', $item->genre_id)->first();
+            $item->genre_name = $genre->name;
+        }
+        
+        return view('find_shop',['items'=>$items]);
+    }
+
+    //店舗エリアで検索//
+    public function find_area($id){
+        $items = Shop::where('area_id',$id)->get();
+        foreach ($items as $item) {
+            $area = Area::where('id', $item->area_id)->first();
+            $item->area_name = $area->name;
+
+            $genre = Genre::where('id', $item->genre_id)->first();
+            $item->genre_name = $genre->name;
+        }
+        $area_name = $area->name;
+
+        return view('find_area')->with(['items'=>$items, 'area_name'=>$area_name]);
+    }
+
+    //店舗ジャンル別検索//
+    public function find_genre($id)
+    {
+        $items = Shop::where('genre_id', $id)->get();
+        foreach ($items as $item) {
+            $area = Area::where('id', $item->area_id)->first();
+            $item->area_name = $area->name;
+
+            $genre = Genre::where('id', $item->genre_id)->first();
+            $item->genre_name = $genre->name;
+        }
+        $genre_name = $genre->name;
+
+        return view('find_genre')->with(['items'=>$items, 'genre_name'=>$genre_name]);
+    }
+
+
     //店舗詳細ページの表示//
     public function getDetail(Shop $shop_id)
     {

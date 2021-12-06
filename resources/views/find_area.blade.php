@@ -15,28 +15,15 @@
   @component('components.header')
   @endcomponent
 
-  <div class="hello">
-    こんにちは、
-    @auth
-    <span>{{$user_name}}</span>
-    @endauth
-
-    @guest
-    <span>ゲスト</span>
-    @endguest
-    さん
-  </div>
-
-  <div class="title">店舗一覧</div>
+  <div class="title">エリア別検索：{{$area_name}}</div>
 
   <div>
     <form action="/find_shop" method="post">
       @csrf
-      <input type="text" class="search_input" placeholder="店名で検索" name="search_shop_name" id="search_shop_name">
+      <input type="text" class="search_input" placeholder="店名で検索">
       <button class="search_btn">検索</button>
     </form>
   </div>
-
   <div class="search_area">
     <div class="area">▼エリア別検索</div>
     <a href="/find_area/1" class="search_area_btn">東京</a>
@@ -48,12 +35,17 @@
     <div class="genre">▼ジャンル別検索</div>
     <a href="/find_genre/1" class="search_genre_btn">寿司</a>
     <a href="/find_genre/2" class="search_genre_btn">焼き肉</a>
-  
+
     <a href="/find_genre/3" class="search_genre_btn">居酒屋</a>
 
     <a href="/find_genre/4" class="search_genre_btn">イタリアン</a>
 
     <a href="/find_genre/5" class="search_genre_btn">ラーメン</a>
+  </div>
+
+  <div class="back">
+    <a href=" /" class="back_btn">
+      店舗一覧へ </a>
   </div>
   <div class="wrapper">
     @foreach($items as $item)
@@ -80,6 +72,7 @@
       </div>
     </div>
     @endforeach
+
   </div>
 </body>
 
@@ -116,6 +109,18 @@
     font-weight: bold;
     padding: 1% 2%;
     font-size: 1.2em;
+  }
+
+  .back {
+    margin: 2% 0;
+  }
+
+  .back_btn {
+    margin-left: 2%;
+    color: rgb(59 91 244);
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: solid 2px rgb(59 91 244);
   }
 
   body {

@@ -15,19 +15,7 @@
   @component('components.header')
   @endcomponent
 
-  <div class="hello">
-    こんにちは、
-    @auth
-    <span>{{$user_name}}</span>
-    @endauth
-
-    @guest
-    <span>ゲスト</span>
-    @endguest
-    さん
-  </div>
-
-  <div class="title">店舗一覧</div>
+  <div class="title">ジャンル別検索：{{$genre_name}}</div>
 
   <div>
     <form action="/find_shop" method="post">
@@ -48,12 +36,16 @@
     <div class="genre">▼ジャンル別検索</div>
     <a href="/find_genre/1" class="search_genre_btn">寿司</a>
     <a href="/find_genre/2" class="search_genre_btn">焼き肉</a>
-  
+
     <a href="/find_genre/3" class="search_genre_btn">居酒屋</a>
 
     <a href="/find_genre/4" class="search_genre_btn">イタリアン</a>
 
     <a href="/find_genre/5" class="search_genre_btn">ラーメン</a>
+  </div>
+  <div class="back">
+    <a href=" /" class="back_btn">
+      店舗一覧へ </a>
   </div>
   <div class="wrapper">
     @foreach($items as $item)
@@ -98,6 +90,18 @@
 </script>
 
 <style scoped>
+  .back {
+    margin: 2% 0;
+  }
+
+  .back_btn {
+    margin-left: 2%;
+    color: rgb(59 91 244);
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: solid 2px rgb(59 91 244);
+  }
+
   .search_area,
   .search_genre {
     margin: 0% 2%;

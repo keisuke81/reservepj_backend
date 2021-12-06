@@ -41,4 +41,11 @@ Route::get('/update_reserve/{id}',[ReserveController::class,'getUpdate'])->name(
 
 Route::post('/update', [ReserveController::class, 'update'])->name('updateReserve');
 
+Route::post('/find_shop', [ShopController::class, 'find_shop']);
+Route::get('/find_shop',[ShopController::class,'find_shop'])->name('find_shop');
+
+Route::get('/find_area/{id}',[ShopController::class, 'find_area'])->name('find_area');
+
+Route::get('/find_genre/{id}',[ShopController::class, 'find_genre'])->name('find_genre');
+
 require __DIR__.'/auth.php';

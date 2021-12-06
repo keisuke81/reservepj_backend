@@ -14,9 +14,10 @@
 <body>
   @component('components.header')
   @endcomponent
+  <h1>予約変更ページ</h1>
   <div class="wrapper">
     <div class="reserve_card">
-      <h3>現在のご予約</h3>
+      <h2>現在のご予約</h2>
       <table>
         <tr>
           <th>Shop</th>
@@ -42,7 +43,7 @@
     <div class="update_reserve">
       <form action="/update" method="post">
         @csrf
-        <h3>変更内容</h3>
+        <h2>変更内容</h2>
         <table>
           <input type="hidden" name="id" value="{{$param[5]}}">
           <tr>
@@ -126,5 +127,13 @@
     font-weight: bold;
     padding:1% 2%;
     border-radius: 5px;
+  }
+  h1{
+    margin: 5% 0;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  h2{
+    font-weight: bold;
   }
 </style>

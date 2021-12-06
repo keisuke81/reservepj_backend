@@ -9,11 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>shop_detail</title>
   <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
-  <script>
-    function alertReserve() {
-      alert('予約しますか？');
-    }
-  </script>
+
 </head>
 
 <body>
@@ -44,11 +40,20 @@
         <div>
           <input type="date" id="today" name="date" class="reserve_date" value="2021-04-01">
         </div>
+        <div class="error">
+          {{$errors->first('date')}}
+        </div>
         <div>
           <input type="time" id="time" name="time" class="reserve_time" value="17:00">
         </div>
+        <div class="error">
+          {{$errors->first('time')}}
+        </div>
         <div>
           <input type="number" id="num_of_users" name="num_of_users" value="2">名
+        </div>
+        <div class="error">
+          {{$errors->first('num_of_users')}}
         </div>
         <div class="reserve_content">
           <table>
@@ -76,7 +81,7 @@
             </tr>
           </table>
         </div>
-        <button class="reserve_login_btn" onclick="alertReserve()">予約する</button>
+        <button class="reserve_login_btn">予約する</button>
       </form>
     </div>
   </div>
@@ -221,22 +226,29 @@
     height: 40px;
     font-size: 0.8em;
   }
-  #num_of_users{
-    width:50%;
+
+  #num_of_users {
+    width: 50%;
+  }
+  .error{
+    margin-left: 20px;
+    color: red;
   }
 
   @media screen and (max-width: 768px) {
-    .wrapper{
+    .wrapper {
       display: block;
     }
-    .detail_content{
-      margin:2% 2%;
-      width:100%;
+
+    .detail_content {
+      margin: 2% 2%;
+      width: 100%;
     }
-    .reserve_form{
-      margin:2% 2%;
-      width:80%;
-      height:100%;
+
+    .reserve_form {
+      margin: 2% 2%;
+      width: 80%;
+      height: 100%;
     }
   }
 </style>

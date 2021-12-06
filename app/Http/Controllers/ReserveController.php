@@ -10,6 +10,7 @@ use App\Models\Favorite;
 use App\Models\Area;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ClientRequest;
 
 class ReserveController extends Controller
 {
@@ -19,7 +20,7 @@ class ReserveController extends Controller
         $this->middleware(['auth', 'verified'])->only(['create']);
     }
     //店予約//
-    public function create(Request $request)
+    public function create(ClientRequest $request)
     {
         $user = Auth::user();
         $user_id = Auth::id();
@@ -33,6 +34,7 @@ class ReserveController extends Controller
         ];
 
         Reserve::create($param);
+        
 
         return view('done');
     }

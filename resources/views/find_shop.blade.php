@@ -15,12 +15,12 @@
   @component('components.header')
   @endcomponent
 
-  <div class="title">店舗一覧</div>
+  <div class="title">検索結果</div>
 
   <div>
     <form action="/find_shop" method="post">
       @csrf
-      <input type="text" class="search_input" placeholder="店名で検索">
+      <input type="text" class="search_input" placeholder="店名で検索" name="search_shop_name" id="search_shop_name">
       <button class="search_btn">検索</button>
     </form>
   </div>
@@ -43,7 +43,7 @@
     <a href="/find_genre/5" class="search_genre_btn">ラーメン</a>
   </div>
 
-  <div>
+  <div class="back">
     <a href="/" class="back_btn">
       店舗一覧へ </a>
   </div>
@@ -157,6 +157,8 @@
 
   .wrapper {
     margin-top: 2%;
+    display: flex;
+    align-items: flex-start;
     justify-content: left;
     flex-wrap: wrap;
   }

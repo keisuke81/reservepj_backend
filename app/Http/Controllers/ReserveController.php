@@ -148,4 +148,26 @@ class ReserveController extends Controller
         return view('done');
 
     }
+
+    //店舗代表者用の管理画面の表示//
+    public function admin_shop(){
+        return view('admin_shop');
+    }
+
+    //自分の店舗の管理画面を表示//
+    public function admin_myshop(Request $request, $id){
+        $id = $request->shop_number;
+
+        $reserves = Reserve::where('shop_id',$id)->get();
+
+        foreach ($reserves as $reserve) {
+            $user = User::where('id', $reserve->user_id)->first();
+            $user_name = $user->name;
+        }
+        
+
+
+        return view('admin_myshop')->with(['id'=>$id, 'reserves'=>$reserves,
+        'user_name'=>$user_name]);
+    }
 }

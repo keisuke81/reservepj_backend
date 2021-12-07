@@ -48,4 +48,11 @@ Route::get('/find_area/{id}',[ShopController::class, 'find_area'])->name('find_a
 
 Route::get('/find_genre/{id}',[ShopController::class, 'find_genre'])->name('find_genre');
 
+Route::post('/charge', 'StripeController@charge')->name('stripe.charge');
+
+Route::get('/admin_shop',[ReserveController::class,'admin_shop'])->name('admin_shop');
+
+Route::post('/admin_myshop/{id}',[ReserveController::class,'admin_myshop']);
+Route::get('/admin_myshop/{id}',[ReserveController::class,'admin_myshop'])->name('admin_my_shop');
+
 require __DIR__.'/auth.php';

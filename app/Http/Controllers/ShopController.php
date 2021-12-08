@@ -128,4 +128,17 @@ class ShopController extends Controller
 
         return redirect('/');
     }
+
+    //店舗情報更新(店の代表者管理画面)//
+    public function edit_done(Request $request){
+        $edit_data = [
+            'name' => $request->name,
+            'description'=>$request->description
+        ];
+
+
+        Shop::where('id', $request->id)->update($edit_data);
+
+        return view('edit_done');
+    }
 }

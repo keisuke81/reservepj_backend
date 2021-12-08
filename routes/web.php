@@ -55,4 +55,7 @@ Route::get('/admin_shop',[ReserveController::class,'admin_shop'])->name('admin_s
 Route::post('/admin_myshop/{id}',[ReserveController::class,'admin_myshop']);
 Route::get('/admin_myshop/{id}',[ReserveController::class,'admin_myshop'])->name('admin_my_shop');
 
+Route::post('/edit_done',[ShopController::class,'edit_done']);
+Route::get('/edit_done',[ShopController::class,'edit_done']);
+
 require __DIR__.'/auth.php';

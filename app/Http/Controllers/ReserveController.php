@@ -162,12 +162,21 @@ class ReserveController extends Controller
 
         foreach ($reserves as $reserve) {
             $user = User::where('id', $reserve->user_id)->first();
-            $user_name = $user->name;
+            $reserve->user_name = $user->name;
         }
+
+        $item = Shop::where('id',$id)->first();
+
+        $area = Area::where('id',$item->area_id)->first();
+        $item->area_name = $area->name;
+
+        $genre = Genre::where('id', $item->genre_id)->first();
+        $item->genre_name = $genre->name;
+
         
 
-
         return view('admin_myshop')->with(['id'=>$id, 'reserves'=>$reserves,
-        'user_name'=>$user_name]);
+        'item'=>$item]);
     }
 }
+

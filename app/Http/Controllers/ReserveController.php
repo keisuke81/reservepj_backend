@@ -155,7 +155,8 @@ class ReserveController extends Controller
     }
 
     //自分の店舗の管理画面を表示//
-    public function admin_myshop(Request $request, $id){
+    public function admin_myshop(Request $request){
+
         $id = $request->shop_number;
 
         $reserves = Reserve::where('shop_id',$id)->get();
@@ -177,6 +178,11 @@ class ReserveController extends Controller
 
         return view('admin_myshop')->with(['id'=>$id, 'reserves'=>$reserves,
         'item'=>$item]);
+    }
+
+    public function getAdmin(){
+
+        return view('admin');
     }
 }
 

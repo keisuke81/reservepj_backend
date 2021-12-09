@@ -53,9 +53,14 @@ Route::post('/charge', 'StripeController@charge')->name('stripe.charge');
 Route::get('/admin_shop',[ReserveController::class,'admin_shop'])->name('admin_shop');
 
 Route::post('/admin_myshop/{id}',[ReserveController::class,'admin_myshop']);
+
 Route::get('/admin_myshop/{id}',[ReserveController::class,'admin_myshop'])->name('admin_my_shop');
 
 Route::post('/edit_done',[ShopController::class,'edit_done']);
 Route::get('/edit_done',[ShopController::class,'edit_done']);
+
+Route::post('/create_done',[ShopController::class,'create_done']);
+
+Route::get('/admin',[ReserveController::class,'getAdmin']);
 
 require __DIR__.'/auth.php';

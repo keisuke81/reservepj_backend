@@ -10,6 +10,15 @@ class Shop extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id,',
+        'name',
+        'area_id',
+        'genre_id',
+        'description',
+        'img_url',
+    ];
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class, 'shop_id');

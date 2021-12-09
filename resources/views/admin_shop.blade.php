@@ -13,10 +13,55 @@
 
 <body>
   <div class="find_myshop">
-    <form action="/admin_myshop/{id}" method="post">
+    <h1>新規店舗作成</h1>
+    <form action="/create_done" method="post">
       @csrf
-      <input type="number" min="1" class="shop_number_input" placeholder="店番号で検索" name="shop_number">
-      <button class="search_btn">検索</button>
+      <div>
+        店舗名：<input type="text" name="name">
+      </div>
+      <div>
+        エリア番号：<input type="number" name="area_id" min="1" >
+      </div>
+      <div>
+        ジャンル番号：<input type="number" name="genre_id" min="1">
+      </div>
+      <div>
+        紹介文：<input type="text" name="description" value="紹介文を入れる。">
+      </div>
+      <div>
+        イメージ写真：<input type="text" value="https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg" name="img_url">
+      </div>
+      <div>
+        <button class="create_btn">作成する</button>
+      </div>
     </form>
   </div>
 </body>
+
+<style scoped>
+  body {
+    padding: 2% 3%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  input {
+    border: solid 1px black;
+    border-radius: 5px;
+    height: 1.5em;
+  }
+
+  button {
+    background-color: black;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 5px;
+  }
+
+  div {
+    margin-top: 3%;
+  }
+</style>

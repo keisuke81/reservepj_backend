@@ -141,4 +141,19 @@ class ShopController extends Controller
 
         return view('edit_done');
     }
+
+    //店舗作成//
+    public function create_done(Request $request){
+        $create_data =[
+            'id'=>$request->id,
+            'name'=>$request->name,
+            'area_id'=>$request->area_id,
+            'genre_id'=>$request->genre_id,
+            'description'=>$request->description,
+            'img_url'=>$request->img_url
+        ] ;
+        Shop::create($create_data);
+
+        return view('create_done');
+    }
 }

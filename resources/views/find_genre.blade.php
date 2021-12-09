@@ -25,23 +25,25 @@
     </form>
   </div>
 
-  <div class="search_area">
-    <div class="area">▼エリア別検索</div>
-    <a href="/find_area/1" class="search_area_btn">東京</a>
-    <a href="/find_area/2" class="search_area_btn">大阪</a>
-    <a href="/find_area/3" class="search_area_btn">福岡</a>
-  </div>
+  <div class="search_wrapper">
+    <div class="search_area">
+      <div class="area">▼エリア別検索</div>
+      <a href="/find_area/1" class="search_area_btn">東京</a>
+      <a href="/find_area/2" class="search_area_btn">大阪</a>
+      <a href="/find_area/3" class="search_area_btn">福岡</a>
+    </div>
 
-  <div class="search_genre">
-    <div class="genre">▼ジャンル別検索</div>
-    <a href="/find_genre/1" class="search_genre_btn">寿司</a>
-    <a href="/find_genre/2" class="search_genre_btn">焼き肉</a>
+    <div class="search_genre">
+      <div class="genre">▼ジャンル別検索</div>
+      <a href="/find_genre/1" class="search_genre_btn">寿司</a>
+      <a href="/find_genre/2" class="search_genre_btn">焼き肉</a>
 
-    <a href="/find_genre/3" class="search_genre_btn">居酒屋</a>
+      <a href="/find_genre/3" class="search_genre_btn">居酒屋</a>
 
-    <a href="/find_genre/4" class="search_genre_btn">イタリアン</a>
+      <a href="/find_genre/4" class="search_genre_btn">イタリアン</a>
 
-    <a href="/find_genre/5" class="search_genre_btn">ラーメン</a>
+      <a href="/find_genre/5" class="search_genre_btn">ラーメン</a>
+    </div>
   </div>
   <div class="back">
     <a href=" /" class="back_btn">
@@ -107,19 +109,24 @@
     margin: 0% 2%;
   }
 
-  .area,
-  .genre {
-    margin: 2% 0;
+  .search_area {
+    width: 25%;
+  }
+
+  .search_genre {
+    width: 70%;
   }
 
   .search_area_btn,
   .search_genre_btn {
-    margin-top: 1%;
-    border: solid 2px black;
+    margin: 1% 1%;
     color: black;
-    font-weight: bold;
-    padding: 1% 2%;
-    font-size: 1.2em;
+    border-bottom: solid 1px black;
+    padding: 0 1%;
+  }
+
+  .search_wrapper {
+    display: flex;
   }
 
   body {
@@ -162,8 +169,8 @@
   }
 
   .title {
-    margin: 2% 3%;
-    font-size: 2em;
+    margin: 1% 3%;
+    font-size: 1.2em;
     font-weight: bold;
   }
 
